@@ -88,7 +88,7 @@
         }
         .fill >form {
             width: 85%;
-            height: 260px;
+            height: 280px;
             /* border: 1px solid saddlebrown; */
         }
         .fill >form >input {
@@ -216,20 +216,22 @@
                 <button>Log in with Facebook </button>
                 </div>
                 <div class="fill">
-                    <form>
-                        <input type="text" placeholder="Enter your Name"/><br>
-                        <input type="email" placeholder="Enter your Email"/><br>
-                        <input type="password" placeholder="Enter your Password"/><br>
-                        <input type="password" placeholder="Confirm Password"/><br>
+                    <form onsubmit="Register(event)">
+                    <input id="Instausername" type="text" placeholder="Enter your Name"/><br>
+                    <input id="Instauseremail" type="email" placeholder="Enter your Email"/><br>
+                    <input id="Instauserpassword" type="password" placeholder="Enter your Password"/><br>
+                    <input id="Instauserconfirmpassword" type="password" placeholder="Confirm Password"/><br>
+                    <!-- <input type="submit" value="Signup"/> -->
                     </form>
+
                 </div>
                 <div class="word">
                     <p>People who use our service may have uploaded your contact information to Instagram. Learn More</p>
                     <p>By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</p>
                 </div>
                 <div class="button">
-                    <form>
-                        <input type="button" value="Signup"/>
+                    <form onsubmit="Register(event)">
+                        <input type="submit" value="Signup"/>
                     </form>
                 </div>
             </div>
@@ -270,5 +272,8 @@
             </div>
         </div>
     </div>
+
+
+    <script src="./InstaRegister.js"></script>
 </body>
 </html>

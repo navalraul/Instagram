@@ -216,10 +216,10 @@
                 <button>Log in with Facebook </button>
                 </div> -->
                 <div class="fill">
-                    <form>
+                    <form onsubmit="Login(event)">
                         <!-- <input type="text" placeholder="Enter your Name"/><br> -->
-                        <input type="email" placeholder="Enter your Email"/><br>
-                        <input type="password" placeholder="Enter your Password"/><br>
+                        <input id="Instauseremail" type="email" placeholder="Enter your Email"/><br>
+                        <input id="Instauserpassword" type="password" placeholder="Enter your Password"/><br>
                         <!-- <input type="password" placeholder="Confirm Password"/><br> -->
                     </form>
                 </div>
@@ -228,8 +228,8 @@
                     <p>By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</p>
                 </div> -->
                 <div class="button">
-                    <form>
-                        <input type="button" value="Login"/>
+                    <form onsubmit="Login(event)">
+                        <input type="submit" value="Login"/>
                     </form>
                 </div>
             </div>
@@ -270,5 +270,8 @@
             </div>
         </div>
     </div>
+
+
+    <script src="./InstaLogin.js"></script>
 </body>
 </html>
