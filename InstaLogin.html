@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #screen {
+            width: 100%;
+            height: 850px;
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .main {
+            width: 50%;
+            height: 700px;
+            /* border: 1px solid yellow; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .main >div:nth-child(1){
+            width: 50%;
+            height: 400px;
+            border: 1px solid rgb(193, 185, 185);
+        }
+        .top >div:nth-child(1) {
+            width: 100%;
+            height: 100px;
+            /* border: 1px solid red;   */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .top >div:nth-child(1) >img {
+            width: 50%;
+        }
+        /* .top >div:nth-child(2) {
+            width: 100%;
+            height: 100px;
+        } */
+        .write {
+            width: 100%;
+            height: 100px;
+            /* border: 1px solid violet; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .write >h4 {
+            width: 80%;
+            height: 50px;
+            /* border: 1px solid black; */
+            margin-top: 0px;
+            text-align: center;
+            font-size: 18px;
+            font-family: sans-serif;
+            color: gray;
+            font-weight: bold;
+        }
+        .write >button {
+            width: 80%;
+            height: 40px;
+            /* border: 1px solid blue; */
+            border-radius: 8px;
+            background-color: #0095f6;
+            color: snow;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .write >button:hover {
+            cursor: pointer;
+            background-color: #0d82d1;
+        }
+        .fill {
+            width: 100%;
+            height: 150px;
+            /* border: 1px solid black; */
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fill >form {
+            width: 85%;
+            height: 120px;
+            /* border: 1px solid saddlebrown; */
+        }
+        .fill >form >input {
+            width: 90%;
+            height: 40px;
+            margin: 10px;
+            outline: none;
+        }
+        .word {
+            width: 100%;
+            height: 100px;
+            /* border: 1px solid red; */
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .word >p {
+            width: 70%;
+            height: 30px;
+            /* border: 1px solid blue; */
+            margin-top: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: rgb(169, 166, 166);
+            font-family: sans-serif;
+        }
+        .button {
+            width: 100%;
+            height: 50px;
+            /* border: 1px solid blue; */
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .button >form {
+            width: 80%;
+            height: 50px;
+            /* border: 1px solid black; */
+        }
+        .button >form >input {
+            width: 100%;
+            height: 40px;
+            border-radius: 8px;
+            background-color: #0095f6;
+            color: snow;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .main >div:nth-child(2){
+            width: 50%;
+            height: 80px;
+            border: 1px solid rgb(199, 193, 193);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .second >h4 {
+            color: rgb(122, 116, 116);
+            font-family: sans-serif;
+        }
+        .main >div:nth-child(3){
+            width: 50%;
+            height: 180px;
+            /* border: 1px solid yellow; */
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .third >div:nth-child(1) >h4 {
+            color: black;
+            font-weight: lighter;
+        }
+        .third >div:nth-child(2) {
+            width: 80%;
+            height: 120px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .third >div:nth-child(2) >img {
+            width: 45%;
+            height: 50px;
+        }
+        .main2 {
+            width: 80%;
+            height: 80px;
+            /* border: 1px solid yellow; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .main2 >div:nth-child(1) {
+            width: 90%;
+            height: 50px;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            word-spacing: 5px;
+            color: gray;
+            font-size: 14px;
+        }
+        .main2 >div:nth-child(2) {
+            width: 50%;
+            height: 30px;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="screen">
+        <div class="main">
+            <div class="top">
+                <div>
+                <img src="https://www.dafont.com/forum/attach/orig/7/3/737566.png?1"/>
+                </div>
+                <!-- <div class="write">
+                <h4>Sign up to see photos and videos from your friends.</h4>
+                <button>Log in with Facebook </button>
+                </div> -->
+                <div class="fill">
+                    <form>
+                        <!-- <input type="text" placeholder="Enter your Name"/><br> -->
+                        <input type="email" placeholder="Enter your Email"/><br>
+                        <input type="password" placeholder="Enter your Password"/><br>
+                        <!-- <input type="password" placeholder="Confirm Password"/><br> -->
+                    </form>
+                </div>
+                <!-- <div class="word">
+                    <p>People who use our service may have uploaded your contact information to Instagram. Learn More</p>
+                    <p>By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</p>
+                </div> -->
+                <div class="button">
+                    <form>
+                        <input type="button" value="Login"/>
+                    </form>
+                </div>
+            </div>
+            <div class="second">
+                <h4>Don't have an account? Sign up</h4>
+            </div>
+            <div class="third">
+                <div>
+                <h4>Get the app.</h4>
+                </div>
+                <div>
+                <img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png"/>
+                <img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png"/>
+                </div>
+            </div>
+        </div>
+        <div class="main2">
+            <div>
+                <p>Meta
+                    About
+                    Blog
+                    Jobs
+                    Help
+                    API
+                    Privacy
+                    Terms
+                    Top Accounts
+                    Locations
+                    Instagram Lite
+                    Contact Uploading & Non-Users
+                    Meta Verified</p>
+            </div>
+            <div>
+                <p>English
+
+                    English
+                    © 2023 Instagram from Meta</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
