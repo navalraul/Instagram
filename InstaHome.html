@@ -5,8 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #navbar {
+            width: 15%;
+            height: 700px;
+            border: 1px solid red;
+        }
+        #navbar >div >img {
+            width: 70%;
+            padding: 20px;
+        }
+        #singlepro {
+            width: 100%;
+            height: 250px;
+            margin: 0px 400px;
+            border: 1px solid red;
+        }
+        #singlepro >img {
+            width: 80%;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
-    <div>hello naval</div>
+    <div id="navbar">
+        <div>
+            <img src="https://www.dafont.com/forum/attach/orig/7/3/737566.png?1"/>
+        </div>
+        <div id="switch">
+            <button onclick="window.location.href=`./InstaLogin.html`">Login</button>
+            <button onclick="window.location.href=`./InstaRegister.html`">Register</button>
+        </div>
+        <div id="logout"></div>
+        <div>
+    </div>
+    <div id="Instaproducts"></div>
+
+
+
+    <script>
+        window.onload = function () {
+            var divToShowProducts = document.getElementById("Instaproducts");
+            var finalData = "";
+
+            var productsFromLS = JSON.parse(localStorage.getItem("InstaProducts"));
+            for (var i=0;i < productsFromLS.length;i++){
+                // console.log(productsFromLS[i],'productFromLS')
+                finalData += `<div onclick ='redirect(${JSON.stringify(productsFromLS[i])})'id='singlepro'><h4>${productsFromLS[i].postName}</h4><img src =${productsFromLS[i].postImage} /><h3>${productsFromLS[i].postProfile}</h3><p>${productsFromLS[i].postCaption}</p></div>`;
+            }
+            console.log(finalData,"finalData here")
+            divToShowProducts.innerHTML = finalData;
+
+            // alert("working")
+            var currentUser = JSON.parse(localStorage.getItem("InstacurrentUser"));
+
+            if (!!currentUser){
+                var logoutDiv = document.getElementById("logout");
+                var divFromHtml = document.getElementById("switch");
+
+                var button = '<button onclick="logout()">Logout</button>'
+                var name = `<h1>${currentUser.userName}</h1>`;
+                divFromHtml.innerHTML = name;
+                logoutDiv.innerHTML = button;
+            }else {
+                // alert("Current User Absent")
+            }
+            // console.log(currentUser,"userEmail")
+        }
+        function logout(){
+            // alert("Working")
+            localStorage.removeItem("InstacurrentUser");
+            window.location.reload();
+        }
+        
+        function redirect(Instaproduct) {
+            var singleproduct = JSON.stringify(Instaproduct);
+
+            localStorage.setItem("Instacurrent-product",singleproduct);
+            window.location.href = './SingleProduct.html'
+        }
+        
+    </script>
 </body>
 </html>

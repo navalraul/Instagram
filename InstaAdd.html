@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Post</h2>
+
+    <form onsubmit="addproduct(event)">
+        <label>Name</label><br>
+        <input type="text" id="Pname"/><br>
+        <label>Post Profile</label><br>
+        <input type="text" id="Pprofile"/><br>
+        <label>Post Image</label><br>
+        <input type="text" id="Pimage"/><br>
+        <label>Caption</label><br>
+        <input type="text" id="Pcaption"/><br>
+        <input type="submit"/>
+    </form>
+
+
+    <script>
+        function addproduct(event){
+            event.preventDefault();
+            // alert("product adding...")
+            var postName = document.getElementById("Pname").value;
+            var postProfile = document.getElementById("Pprofile").value;
+            var postImage = document.getElementById("Pimage").value;
+            var postCaption = document.getElementById("Pcaption").value;
+            var product = {postName,postProfile,postImage,postCaption};
+
+            var LS =JSON.parse (localStorage.getItem("InstaProducts")) || [];
+            LS.push(product);
+
+            localStorage.setItem("InstaProducts",JSON.stringify(LS));
+
+            alert("Posted successfully.")
+        }
+    </script>
+</body>
+</html>
