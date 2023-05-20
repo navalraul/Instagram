@@ -1,45 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/8cfedbae53.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        #screen {
+            width: 100%;
+            height: 1000px;
+            border: 1px solid red;
+            display: flex;
+        }
         #navbar {
-            width: 15%;
+            width: 18%;
             height: 700px;
             border: 1px solid red;
+            /* display: flex; */
         }
-        #navbar >div >img {
+        .logo >img {
             width: 70%;
-            padding: 20px;
+            padding: 30px;
         }
-        #singlepro {
+        .ho {
             width: 100%;
-            height: 250px;
-            margin: 0px 400px;
-            border: 1px solid red;
+            height: 30px;
+            border: 1px solid green;
+            margin: 10px 0px ;
         }
-        #singlepro >img {
-            width: 80%;
-            height: 100px;
+        .sea {
+            width: 100%;
+            height: 30px;
+            border: 1px solid green;
+            margin: 10px 0px ;
+        }
+        .expl {
+            width: 100%;
+            height: 30px;
+            border: 1px solid green;
+            margin: 10px 0px ;
+        }
+        .reel {
+            width: 100%;
+            height: 30px;
+            border: 1px solid green;
+            margin: 10px 0px ;
+        }
+        .mess {
+            width: 100%;
+            height: 30px;
+            border: 1px solid green;
+            margin: 10px 0px ;
+        }
+        .not {
+            width: 100%;
+            height: 30px;
+            border: 1px solid green;
+            margin: 10px 0px ;
+        }
+        .crea {
+            width: 100%;
+            height: 30px;
+            border: 1px solid green;
+            margin: 10px 0px ;
+        }
+        .pro {
+            width: 100%;
+            height: 30px;
+            border: 1px solid green;
+            margin: 10px 0px ;
+        }
+        #Instaproducts {
+            width: 60%;
+            height: 700px;
+            border: 1px solid yellow;
+        }
+        #Instaproducts >div >img {
+            width: 50%;
+        }
+        #last {
+            width: 22%;
+            height: 700px;
+            border: 1px solid yellow;
         }
     </style>
 </head>
 <body>
-    <div id="navbar">
-        <div>
-            <img src="https://www.dafont.com/forum/attach/orig/7/3/737566.png?1"/>
+    <div id="screen">
+        <div id="navbar">
+            <div class="logo">
+                <img src="https://www.dafont.com/forum/attach/orig/7/3/737566.png?1"/>
+            </div>
+            <div class="ho">
+                <i class="fa-solid fa-house"></i>
+                <h3>Home</h3>
+            </div>
+            <div class="sea">3</div>
+            <div class="expl">4</div>
+            <div class="reel">5</div>
+            <div class="mess">6</div>
+            <div class="not">7</div>
+            <div class="crea">8</div>
+            <div class="pro">9</div>
         </div>
-        <div id="switch">
-            <button onclick="window.location.href=`./InstaLogin.html`">Login</button>
-            <button onclick="window.location.href=`./InstaRegister.html`">Register</button>
-        </div>
-        <div id="logout"></div>
-        <div>
+        <div id="Instaproducts">2</div>
+        <div id="last"></div>
     </div>
-    <div id="Instaproducts"></div>
 
 
 
