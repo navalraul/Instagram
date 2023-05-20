@@ -29,7 +29,7 @@
             /* border: 1px solid green; */
             margin: 10px 0px ;
             display: flex;
-            justify-content: center;
+            /* justify-content: center; */
             align-items: center;
         }
         .ho >i {
@@ -56,7 +56,7 @@
             /* border: 1px solid green; */
             margin: 10px 0px ;
             display: flex;
-            justify-content: center;
+            /* justify-content: center; */
             align-items: center;
         }
         .sea >i {
@@ -83,7 +83,7 @@
             /* border: 1px solid green; */
             margin: 10px 0px ;
             display: flex;
-            justify-content: center;
+            /* justify-content: center; */
             align-items: center;
         }
         .expl >i {
@@ -110,7 +110,7 @@
             /* border: 1px solid green; */
             margin: 10px 0px ;
             display: flex;
-            justify-content: center;
+            /* justify-content: center; */
             align-items: center;
         }
         .reel >i {
@@ -137,7 +137,7 @@
             /* border: 1px solid green; */
             margin: 10px 0px ;
             display: flex;
-            justify-content: center;
+            /* justify-content: center; */
             align-items: center;
         }
         .mess >i {
@@ -164,7 +164,7 @@
             /* border: 1px solid green; */
             margin: 10px 0px ;
             display: flex;
-            justify-content: center;
+            /* justify-content: center; */
             align-items: center;
         }
         .not >i {
@@ -191,7 +191,7 @@
             /* border: 1px solid green; */
             margin: 10px 0px ;
             display: flex;
-            justify-content: center;
+            /* justify-content: center; */
             align-items: center;
         }
         .crea >i {
@@ -218,7 +218,7 @@
             /* border: 1px solid green; */
             margin: 10px 0px ;
             display: flex;
-            justify-content: center;
+            /* justify-content: space-around; */
             align-items: center;
         }
         .pro >i {
@@ -239,14 +239,68 @@
             align-items: center;
             margin: 0px 10px;
         }
-        #Instaproducts {
-            width: 60%;
+        #screen2 {
+            width: 80%;
             height: 700px;
+            border: 1px solid saddlebrown;
+        }
+        .top {
+            width: 100%;
+            height: 200px;
+            /* border: 1px solid red; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .topleft{
+            width: 30%;
+            height: 200px;
+            /* border: 1px solid red; */
+        }
+        .topleft >img {
+            width: 80%;
+            height: 200px;
+        }
+        .topright {
+            width: 40%;
+            height: 200px;
+            /* border: 1px solid red; */
+        }
+        .edit {
+            width: 60%;
+            height: 40px;
+            /* border: 1px solid yellow; */
+            margin: 10px 0px;
+            display: flex;
+        }
+        .edit >h3 {
+            font-family: sans-serif;
+            font-weight: lighter;
+        }
+        .edit >button {
+            width: 50%;
+            height: 30px;
+            margin: 10px 20px;
+        }
+        .foll {
+            width: 60%;
+            height: 40px;
+            /* border: 1px solid yellow; */
+            margin: 10px 0px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .name {
+            width: 60%;
+            height: 40px;
+            /* border: 1px solid yellow; */
+        }
+        #Instaproduct {
+            width: 100%;
+            height: 500px;
             border: 1px solid yellow;
         }
-        #Instaproducts >div >img {
-            width: 50%;
-        }
+        
         #last {
             width: 22%;
             height: 700px;
@@ -293,53 +347,31 @@
                 <h3>Profile</h3>
             </div>
         </div>
-        <div id="Instaproducts"></div>
-        <div id="last"></div>
+        <div id="screen2">
+            <div class="top">
+                <div class="topleft">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg"/>
+                </div>
+                <div class="topright">
+                    <div class="edit">
+                        <h3>Name</h3>
+                        <button>Edit Profile</button>
+                    </div>
+                    <div class="foll">
+                        <h3>0 posts</h3>
+                        <h3>3 followers</h3>
+                        <h3>following</h3>
+                    </div>
+                    <div class="name"></div>
+                </div>
+            </div>
+        <div id="Instaproduct"></div>
+        </div>  
+        <!-- <div id="last"></div> -->
     </div>
 
 
-
     <script>
-        window.onload = function () {
-            var divToShowProducts = document.getElementById("Instaproducts");
-            var finalData = "";
-
-            var productsFromLS = JSON.parse(localStorage.getItem("InstaProducts"));
-            for (var i=0;i < productsFromLS.length;i++){
-                // console.log(productsFromLS[i],'productFromLS')
-                finalData += `<div onclick ='redirect(${JSON.stringify(productsFromLS[i])})'id='singlepro'><h4>${productsFromLS[i].postName}</h4><img src =${productsFromLS[i].postImage} /><h3>${productsFromLS[i].postProfile}</h3><p>${productsFromLS[i].postCaption}</p></div>`;
-            }
-            console.log(finalData,"finalData here")
-            divToShowProducts.innerHTML = finalData;
-
-            // alert("working")
-            var currentUser = JSON.parse(localStorage.getItem("InstacurrentUser"));
-
-            if (!!currentUser){
-                var logoutDiv = document.getElementById("logout");
-                var divFromHtml = document.getElementById("switch");
-
-                var button = '<button onclick="logout()">Logout</button>'
-                var name = `<h1>${currentUser.userName}</h1>`;
-                divFromHtml.innerHTML = name;
-                logoutDiv.innerHTML = button;
-            }else {
-                // alert("Current User Absent")
-            }
-            // console.log(currentUser,"userEmail")
-        }
-        function logout(){
-            // alert("Working")
-            localStorage.removeItem("InstacurrentUser");
-            window.location.reload();
-        }
-        
-        function redirect(Instaproduct) {
-            var singleproduct = JSON.stringify(Instaproduct);
-
-            localStorage.setItem("Instacurrent-product",singleproduct);
-            window.location.href = './SingleProduct.html'
-        }
         
     </script>
 </body>
