@@ -25,10 +25,10 @@
             var postImage = document.getElementById("img").value;
             var Post = {postImage};
 
-            var LS = JSON.parse(localStorage.getItem("Instaproduct")) || []
+            var LS = JSON.parse(localStorage.getItem("Instapost")) || []
             LS.push(Post);
 
-            localStorage.setItem("Instaproduct",JSON.stringify(LS));
+            localStorage.setItem("Instapost",JSON.stringify(LS));
 
             alert("post added sucessful")
         }
