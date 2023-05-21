@@ -299,8 +299,19 @@
             width: 100%;
             height: 500px;
             border: 1px solid yellow;
-        }
+            display: flex;
+            justify-content: space-between;
         
+        }
+        #Instapost >div {
+            width: 20%;
+            height: 200px;
+            /* border: 1px solid red; */
+        }
+        #Instapost >div >img {
+            width: 100%;
+            height: 200px;
+        }
         #last {
             width: 22%;
             height: 700px;
@@ -346,6 +357,11 @@
                 <i class="fa-solid fa-house"></i>
                 <h3>Profile</h3>
             </div>
+            <div id="switch">
+                <button onclick="window.location.href=`./InstaLogin.html`">Login</button>
+                <button onclick="window.location.href=`./InstaRegister.html`">Register</button>
+            </div>
+            <div id="logout"></div>
         </div>
         <div id="screen2">
             <div class="top">
@@ -376,10 +392,10 @@
             var divToShowProducts = document.getElementById("Instapost");
             var finalData = "";
 
-            var productsFromLS = JSON.parse(localStorage.getItem("InstaProducts"));
+            var productsFromLS = JSON.parse(localStorage.getItem("Instaposts"));
             for (var i=0;i < productsFromLS.length;i++){
                 // console.log(productsFromLS[i],'productFromLS')
-                finalData += `<div onclick ='redirect(${JSON.stringify(productsFromLS[i])})'id='singlepro'><h4>${productsFromLS[i].postName}</h4><img src =${productsFromLS[i].postImage} /><h3>${productsFromLS[i].postProfile}</h3><p>${productsFromLS[i].postCaption}</p></div>`;
+                finalData += `<div onclick ='redirect(${JSON.stringify(productsFromLS[i])})'id='singlepro'><img src =${productsFromLS[i].postImage} /></div>`;
             }
             console.log(finalData,"finalData here")
             divToShowProducts.innerHTML = finalData;
@@ -396,7 +412,7 @@
                 divFromHtml.innerHTML = name;
                 logoutDiv.innerHTML = button;
             }else {
-                // alert("Current User Absent")
+                alert("Current User Absent")
             }
             // console.log(currentUser,"userEmail")
         }
