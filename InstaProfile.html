@@ -372,7 +372,46 @@
 
 
     <script>
+         window.onload = function () {
+            var divToShowProducts = document.getElementById("Instapost");
+            var finalData = "";
 
+            var productsFromLS = JSON.parse(localStorage.getItem("InstaProducts"));
+            for (var i=0;i < productsFromLS.length;i++){
+                // console.log(productsFromLS[i],'productFromLS')
+                finalData += `<div onclick ='redirect(${JSON.stringify(productsFromLS[i])})'id='singlepro'><h4>${productsFromLS[i].postName}</h4><img src =${productsFromLS[i].postImage} /><h3>${productsFromLS[i].postProfile}</h3><p>${productsFromLS[i].postCaption}</p></div>`;
+            }
+            console.log(finalData,"finalData here")
+            divToShowProducts.innerHTML = finalData;
+
+            // alert("working")
+            var currentUser = JSON.parse(localStorage.getItem("InstacurrentUser"));
+
+            if (!!currentUser){
+                var logoutDiv = document.getElementById("logout");
+                var divFromHtml = document.getElementById("switch");
+
+                var button = '<button onclick="logout()">Logout</button>'
+                var name = `<h1>${currentUser.userName}</h1>`;
+                divFromHtml.innerHTML = name;
+                logoutDiv.innerHTML = button;
+            }else {
+                // alert("Current User Absent")
+            }
+            // console.log(currentUser,"userEmail")
+        }
+        function logout(){
+            // alert("Working")
+            localStorage.removeItem("InstacurrentUser");
+            window.location.reload();
+        }
+        
+        function redirect(Instaproduct) {
+            var singleproduct = JSON.stringify(Instaproduct);
+
+            localStorage.setItem("Instacurrent-product",singleproduct);
+            window.location.href = './InstaProfile.html'
+        }
     </script>
 </body>
 </html>
