@@ -50,7 +50,7 @@
             align-items: center;
             margin: 0px 10px;
         }
-        .sea {
+        .navBarOptions {
             width: 100%;
             height: 50px;
             /* border: 1px solid green; */
@@ -59,15 +59,15 @@
             justify-content: center;
             align-items: center;
         }
-        .sea >i {
+        .navBarOptions >i {
             margin: 0px;
         }
-        .sea >h3 {
+        .navBarOptions >h3 {
             font-size: 20px;
             font-weight: lighter;
             margin: 0px 20px;
         }
-        .sea:hover {
+        .navBarOptions:hover {
             width: 90%;
             height: 50px;
             background-color: rgb(236, 229, 229);
@@ -264,8 +264,8 @@
                 <i class="fa-solid fa-house"></i>
                 <h3>Home</h3>
             </div>
-            <div class="sea">
-                <i class="fa-solid fa-house"></i>
+            <div onclick="displaySearch()" class="navBarOptions">
+                <i class="fa-solid fa-magnifying-glass"></i>
                 <h3>Search</h3>
             </div>
             <div class="expl">
@@ -288,10 +288,11 @@
                 <i class="fa-solid fa-house"></i>
                 <h3>Create</h3>
             </div>
-            <div class="pro">
+            <div class="pro" onclick="window.location.href='./InstaProfile.html'">
                 <i class="fa-solid fa-house"></i>
                 <h3>Profile</h3>
             </div>
+            
             <div id="switch">
                 <button onclick="window.location.href=`./InstaLogin.html`">Login</button>
                 <button onclick="window.location.href=`./InstaRegister.html`">Register</button>

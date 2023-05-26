@@ -325,7 +325,7 @@
             <div class="logo">
                 <img src="https://www.dafont.com/forum/attach/orig/7/3/737566.png?1"/>
             </div>
-            <div class="ho">
+            <div class="ho" onclick="window.location.href='./InstaHome.html'">
                 <i class="fa-solid fa-house"></i>
                 <h3>Home</h3>
             </div>
@@ -388,34 +388,83 @@
 
 
     <script>
-         window.onload = function () {
-            var divToShowProducts = document.getElementById("Instapost");
-            var finalData = "";
+         
+        window.onload = function () {
+                var currentUser = JSON.parse(localStorage.getItem("instaCurrentUser"));
+                if (currentUser) {
+                    var showName = document.getElementById("userSwitch");
+                    var showName1 = document.getElementById("userSwitch1");
+                    var showImage = document.getElementById("userImage");
+                    var showBio = document.getElementById("userBio");
+                    var logoutswitch = document.getElementById("logout");
+                    var activeUserName = `<h4>${currentUser.iName}</h4>`;
+                    var activeUserName1 = `<b>${currentUser.iName}</b>`;
+                    var userImage = `<div><img src="${currentUser.iImage}"/></div>`;
+                    var userBio = `<div>${currentUser.iBio}</div>`;
+                    var logout = `<button onclick="logout()">Log Out</button>`;
+                    showName.innerHTML = activeUserName;
+                    showName1.innerHTML = activeUserName1;
+                    showImage.innerHTML = userImage;
+                    showBio.innerHTML = userBio;
+                    logoutswitch.innerHTML = logout;
+                } else {
+                    // alert("You've Logged out.");
+                }
+                // *********Add post********
+                // var displayImage = document.getElementById("postImage");
+                // var postImage = "";
+                var displayName = document.getElementById("postName");
+                var postName = "";
+                // var displayCaption = document.getElementById("postCaption");
+                // var postCaption = "";
 
-            var productsFromLS = JSON.parse(localStorage.getItem("Instaposts"));
-            for (var i=0;i < productsFromLS.length;i++){
-                // console.log(productsFromLS[i],'productFromLS')
-                finalData += `<div onclick ='redirect(${JSON.stringify(productsFromLS[i])})'id='singlepro'><img src =${productsFromLS[i].postImage} /></div>`;
+                var postBackend = JSON.parse(localStorage.getItem("posts"));
+                for (var i = 0; i < postBackend.length; i++) {
+                    // postImage += `<div class="postImage"><img src="${postBackend[i].postImage}"/></div>`;
+                    postName += `<div class="userProfilePost">
+                        <img src="${postBackend[i].postImage}" alt=""/>
+                    </div>`;
+                    // postCaption += `<p>${postBackend[i].postCaption}</p>`;
+                }
+                displayName.innerHTML = postName;
+
+                // *********Add Story********
+
+                // var displayStoryName = document.getElementById("storyName");
+                // var storyName = "";
+
+
+                // var storyBackend = JSON.parse(localStorage.getItem("instaStory"));
+                // for (var i = 0; i < storyBackend.length; i++) {
+                //     storyName += `
+                //     <div class="stories">
+                //                 <div>
+                //             <img src="${storyBackend[i].storyImage}" alt="story" />
+                //             </div>
+                //             <p>${storyBackend[i].storyName}</p></div>
+                //         `;
+
+                // }
+                // displayStoryName.innerHTML = storyName;
+
+                var insta_currentUser = JSON.parse(localStorage.getItem("instaCurrentUser"));
+                var insta_userInfo = JSON.parse(localStorage.getItem("instaUsers"));
+
+                let instaPost = JSON.parse(localStorage.getItem("posts"));
+                for (var i = 0; i < insta_userInfo.length; i++) {
+                    if (insta_currentUser.iEmail == insta_userInfo[i].iEmail) {
+                        if (insta_userInfo[i].iPost == undefined) {
+                            insta_userInfo[i].iPost = [instaPost[i]];
+                            // insta_currentUser.iPost = [instaPost[i]];
+                        } else {
+                            insta_userInfo[i].iPost.push(instaPost[i]);
+                            // insta_currentUser.iPost.push(instaPost[i]);
+                        }
+                    }
+                }
+                localStorage.setItem("instaUsers", JSON.stringify(insta_userInfo));
+                localStorage.setItem("instaCurrentUser", JSON.stringify(insta_currentUser));
             }
-            console.log(finalData,"finalData here")
-            divToShowProducts.innerHTML = finalData;
-
-            // alert("working")
-            var currentUser = JSON.parse(localStorage.getItem("InstacurrentUser"));
-
-            if (!!currentUser){
-                var logoutDiv = document.getElementById("logout");
-                var divFromHtml = document.getElementById("switch");
-
-                var button = '<button onclick="logout()">Logout</button>'
-                var name = `<h1>${currentUser.userName}</h1>`;
-                divFromHtml.innerHTML = name;
-                logoutDiv.innerHTML = button;
-            }else {
-                alert("Current User Absent")
-            }
-            // console.log(currentUser,"userEmail")
-        }
         function logout(){
             // alert("Working")
             localStorage.removeItem("InstacurrentUser");
